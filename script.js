@@ -19,3 +19,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', function(event) {
+        
+        event.preventDefault();
+        
+        clearErrors();
+        
+        let isValid = true;
+        
+        const name = document.getElementById('name');
+        if (name.value.trim() === '') {                  // -> if name is empty,
+            showError('name-error', 'Name is required'); // shows error message by linking to <span class="error" id="name-error"></span> html element
+            isValid = false;                             // -> then name is not valid
+        }
+        
+        const email = document.getElementById('email');
+        if (email.value.trim() === '') {                                        // if email is empty,
+            showError('email-error', 'Email is required');                      // shows error message by linking to <span class="error" id="email-error"></span>
+            isValid = false;                                                    // then email is not valid
+        } else if (!isValidEmail(email.value)) {                                // if email is not in a valid format,
+            showError('email-error', 'Please enter a valid email address');     // then displays 'Please enter a valid email address'
+            isValid = false;                                                    // then email is not valid
+        }
+        
+        const message = document.getElementById('message');
+        if (message.value.trim() === '') {
+            showError('message-error', 'Message is required');
+            isValid = false;
+        }
+        
+        if (isValid) {                                                      // if after the above execution isValid = true,
+            console.log('Form is valid!');                  
+            console.log('Name:', name.value);
+            console.log('Email:', email.value);
+            console.log('Message:', message.value);
+            alert('Form is submitted!');                                    // then form is submitted
+            form.reset(); // clears the form
+        }
+    });
+    
+    function showError(id, message) {
+        const errorElement = document.getElementById(id);
+        errorElement.textContent = message;
+    }
+    
+    function clearErrors() {
+        const errorElements = document.querySelectorAll('.error');
+        errorElements.forEach(element => element.textContent = '');
+    }
+    
+    function isValidEmail(email) {
+        const emailRegular = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegular.test(email);
+    }
+});
