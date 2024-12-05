@@ -1,3 +1,20 @@
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projects = document.querySelectorAll('.project');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const category = this.getAttribute('data-category');
+        projects.forEach(project => {
+            if (project.getAttribute('data-category') === category || category === 'all') {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // All "Show Details" buttons are assigned to const buttons: 
@@ -78,3 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegular.test(email);
     }
 });
+
+const toggleThemeButton = document.getElementById('toggleTheme');
+toggleThemeButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+});
+

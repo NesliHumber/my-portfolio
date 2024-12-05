@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="script.js" ></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -18,6 +17,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button id="toggleTheme">Toggle Dark Mode</button>
     </header>
 
     <!-- About Section -->
@@ -26,37 +26,77 @@
         <p>This is where you’ll write a short bio about yourself. Who are you? What are your interests? What have you done so far in your journey?</p>
     </section>
 
+    <!-- Skills Section -->
+<section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+        <li>JavaScript</li>
+        <li>HTML/CSS</li>
+        <li>React</li>
+        <li>C#</li>
+        <li>Python</li>
+        <li>Automation Testing with Cucumber Selenium</li>
+        <li>Automation Testing with Cucumber Playwright</li>
+    </ul>
+</section>
+
     <!-- Projects Section -->
     <section id="projects">
         <h2>My Projects</h2>
-            <div id="project-gallery">
-                <div class="project">
-                    <h3>Project 1</h3>
-                    <p>Description</p>
-                    <button class="show-details-btn">Show Details</button>
-                    <div class="project-details" style="display: none;">
-                        <p>Details of Project 1</p>
-                    </div>
-                </div>
-    
-                <div class="project">
-                    <h3>Project 2</h3>
-                    <p>Description</p>
-                    <button class="show-details-btn">Show Details</button>
-                    <div class="project-details" style="display: none;">
-                        <p>Details of Project 2...</p>
-                    </div>
-                </div>
-    
-                <div class="project">
-                    <h3>Project 3</h3>
-                    <p>Description</p>
-                    <button class="show-details-btn">Show Details</button>
-                    <div class="project-details" style="display: none;">
-                        <p>Details of Project 3</p>
-                    </div>
+        <div class="filter-buttons">
+            <button class="filter-btn" data-category="all">All</button>
+            <button class="filter-btn" data-category="javascript">JavaScript</button>
+            <button class="filter-btn" data-category="html-css">HTML/CSS</button>
+            <button class="filter-btn" data-category="react">React</button>
+            <button class="filter-btn" data-category="csharp">C#</button>
+            <button class="filter-btn" data-category="python">Python</button>
+        </div>
+        <div id="project-gallery">
+            <div class="project" data-category="javascript">
+                <h3>Project 1</h3>
+                <p>Description</p>
+                <button class="show-details-btn">Show Details</button>
+                <div class="project-details" style="display: none;">
+                    <p>Details of Project 1</p>
                 </div>
             </div>
+    
+            <div class="project" data-category="html-css">
+                <h3>Project 2</h3>
+                <p>Description</p>
+                <button class="show-details-btn">Show Details</button>
+                <div class="project-details" style="display: none;">
+                    <p>Details of Project 2...</p>
+                </div>
+            </div>
+    
+            <div class="project" data-category="react">
+                <h3>Project 3</h3>
+                <p>Description</p>
+                <button class="show-details-btn">Show Details</button>
+                <div class="project-details" style="display: none;">
+                    <p>Details of Project 3</p>
+                </div>
+            </div>
+
+            <div class="project" data-category="csharp">
+                <h3>C#</h3>
+                <p>Built with C# and .NET</p>
+                <button class="show-details-btn">Show Details</button>
+                <div class="project-details" style="display: none;">
+                    <p>This project implements a C# and .NET.</p>
+                </div>
+            </div>
+    
+            <div class="project" data-category="python">
+                <h3>Python Data Analysis Tool</h3>
+                <p>A data analysis tool built with Python</p>
+                <button class="show-details-btn">Show Details</button>
+                <div class="project-details" style="display: none;">
+                    <p>This Python-based tool processes large datasets.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -86,5 +126,8 @@
     <footer>
         <p>&copy; 2024 Neslihan Ustaoglu</p>
     </footer>
+
+    <script src="script.js" ></script>
+
 </body>
 </html>
